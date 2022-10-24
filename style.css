@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    margin-top: 100px;
+    border-radius: 20px;
+    padding: 20px;
+    height: 600px;
+    width: 400px;
+    background-color: grey;
+}
+
+#screen {
+    width: 400px;
+    height:100px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.big-button {
+    width: 145px;
+    height: 80px;
+    background-color: aqua;
+    
+}
+
+.key {
+    width: 95px;
+    height: 80px;
+    background-color: aqua;
+    margin-top:20px;
+}
+
+.key#divide {
+    margin-top: 0px;
+}
+
+.key#zero {
+    width: 170px;
+}
