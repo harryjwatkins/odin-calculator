@@ -18,7 +18,12 @@
     delKey.addEventListener("click", del);
     for (const numKey of numKeys) {
         numKey.addEventListener("click", function(e) {
-            currentDisplayValue += e.target.id;
+            if (e.target.id === "decimal") {
+                currentDisplayValue += ".";
+            }
+            else {
+                currentDisplayValue += e.target.id;
+            }
             current.textContent = currentDisplayValue;
         });
     }
@@ -42,19 +47,19 @@
     });
 
     function add(a,b) {
-        return a + b;
+        return (a.toFixed(2)*1000 + b.toFixed(2)*1000)/1000;
     }
 
     function subtract(a,b) {
-        return a - b;
+        return parseFloat((a - b).toFixed(4));
     } 
 
     function multiply(a,b) {
-        return a * b;
+        return parseFloat((a * b).toFixed(4));
     }
 
     function divide(a,b) {
-        return a / b;
+        return parseFloat((a / b).toFixed(4));
     }
 
     function operate(operator, a, b) {
@@ -84,7 +89,6 @@
             case "subtract": return convertedID = "-";
             case "multiply": return convertedID = "*";
             case "divide": return convertedID = "/";
-            case "decimal": return convertedID = ".";
         }
     }
 
