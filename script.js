@@ -31,11 +31,25 @@
 
     for (const opKey of opKeys) {
         opKey.addEventListener("click", function(e) {
-            currentOp = e.target.id;
-            currentOp = convertID(currentOp);
-            storage.textContent = `${currentDisplayValue} ${currentOp}`;
-            storedDisplayValue = currentDisplayValue;
-            del();
+            if (currentDisplayValue != "" && storedDisplayValue != "") {
+                let nextOp = e.target.id;
+                nextOp = convertID(nextOp);
+                storedDisplayValue = +storedDisplayValue;
+                currentDisplayValue = +currentDisplayValue;
+                currentDisplayValue = operate(currentOp, storedDisplayValue, currentDisplayValue);
+                storage.textContent = `${currentDisplayValue} ${nextOp}`; 
+                storedDisplayValue = currentDisplayValue;
+                currentOp = nextOp;
+                del();              
+            }
+            else {
+                currentOp = e.target.id;
+                currentOp = convertID(currentOp);
+                storage.textContent = `${currentDisplayValue} ${currentOp}`;
+                storedDisplayValue = currentDisplayValue;
+                del();                
+            }
+            
         });
     }
 
