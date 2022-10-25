@@ -64,6 +64,7 @@
             currentDisplayValue = operate(currentOp, storedDisplayValue, currentDisplayValue)
             current.textContent = currentDisplayValue;
             storage.textContent = "";
+            storedDisplayValue = "";
         }
         
     });
