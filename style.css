@@ -13,10 +13,14 @@ body {
 }
 
 #screen {
+    display: flex;
     width: 400px;
     height:100px;
     background-color: white;
     margin-bottom: 20px;
+    font-size: 30px;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 #button-container {
@@ -33,7 +37,9 @@ body {
     
 }
 
-.key {
+.num-key,
+.op-key,
+.equal-key {
     width: 95px;
     height: 80px;
     background-color: aqua;
@@ -41,10 +47,10 @@ body {
     font-size: 20px;
 }
 
-.key#divide {
+.op-key#divide {
     margin-top: 0px;
 }
 
-.key#zero {
+.num-key#zero {
     width: 170px;
 }

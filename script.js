@@ -1,6 +1,18 @@
 (function (){
 
     "use strict"
+    let currentDisplayValue;
+    let storedDisplayValue;
+
+    const screen = document.querySelector("#screen");
+    const clearKey = document.querySelector("#clear");
+    const delKey = document.querySelector("#delete");
+    const numKeys = document.querySelectorAll(".num-key");
+    const opKeys = document.querySelectorAll(".op-key");
+    const equalKey = document.querySelector(".equal-key");
+
+    clearKey.addEventListener("click", clear);
+    delKey.addEventListener("click", del);
 
     function add(a,b) {
         return a + b;
@@ -27,4 +39,13 @@
         }
     }
 
+    function clear() {
+        storedDisplayValue = null;
+    }
+
+    function del() {
+        currentDisplayValue = null;
+    }
+
+    
 })()
