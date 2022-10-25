@@ -27,11 +27,19 @@
         opKey.addEventListener("click", function(e) {
             currentOp = e.target.id;
             currentOp = convertID(currentOp);
-            storedDisplayValue = `${currentDisplayValue} ${currentOp}`;
-            storage.textContent = storedDisplayValue;
+            storage.textContent = `${currentDisplayValue} ${currentOp}`;
+            storedDisplayValue = currentDisplayValue;
             del();
         });
     }
+
+    equalKey.addEventListener("click", function(e) {
+        storedDisplayValue = +storedDisplayValue;
+        currentDisplayValue = +currentDisplayValue;
+        currentDisplayValue = operate(currentOp, storedDisplayValue, currentDisplayValue)
+        current.textContent = currentDisplayValue;
+        storage.textContent = "";
+    });
 
     function add(a,b) {
         return a + b;
@@ -73,9 +81,10 @@
         let convertedID;
         switch (opID) {
             case "add": return convertedID = "+";
-            case "subtract": return convertedID = "-"
+            case "subtract": return convertedID = "-";
             case "multiply": return convertedID = "*";
-            case "divide": return convertedID = "/"
+            case "divide": return convertedID = "/";
+            case "decimal": return convertedID = ".";
         }
     }
 
