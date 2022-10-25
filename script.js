@@ -16,6 +16,7 @@
 
     clearKey.addEventListener("click", clear);
     delKey.addEventListener("click", del);
+
     for (const numKey of numKeys) {
         numKey.addEventListener("click", function(e) {
             if (e.target.id === "decimal") {
@@ -39,11 +40,18 @@
     }
 
     equalKey.addEventListener("click", function(e) {
-        storedDisplayValue = +storedDisplayValue;
-        currentDisplayValue = +currentDisplayValue;
-        currentDisplayValue = operate(currentOp, storedDisplayValue, currentDisplayValue)
-        current.textContent = currentDisplayValue;
-        storage.textContent = "";
+        if (currentDisplayValue === "0" && currentOp === "/") {
+            alert("You have tried to divide by 0, resetting the calculator for you");
+            clear();
+        }
+        else {
+            storedDisplayValue = +storedDisplayValue;
+            currentDisplayValue = +currentDisplayValue;
+            currentDisplayValue = operate(currentOp, storedDisplayValue, currentDisplayValue)
+            current.textContent = currentDisplayValue;
+            storage.textContent = "";
+        }
+        
     });
 
     function add(a,b) {
@@ -72,8 +80,8 @@
     }
 
     function clear() {
-        storedDisplayValue = "";
         del();
+        storedDisplayValue = "";
         storage.textContent = storedDisplayValue;
     }
 
